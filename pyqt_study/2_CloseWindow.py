@@ -24,7 +24,7 @@ class Exam(QWidget):
         if ans ==QMessageBox.Yes:
             QCloseEvent.accept()
         else:
-            QCloseEvent.
+            QCloseEvent.ignore()
 
 
 app=QApplication(sys.argv)
