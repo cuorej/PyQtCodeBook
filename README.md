@@ -1,0 +1,2 @@
+# PyQtCodeBook
+Helpful code
