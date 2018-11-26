@@ -24,7 +24,7 @@ class FormattedTime(object):
         self.minutes = minutes
         self.seconds = seconds
         self.centiseconds = centiseconds
-        self.begin = time.time()
+        self.begin = time.time()  #time.time()은 현재 utc기준 초 반환
         self.paused_begin = 0
 
     def increment_time(self):
@@ -43,11 +43,11 @@ class FormattedTime(object):
     def pause(self):
         self.paused_begin = time.time()
 
-    def __str__(self):
+    def __str__(self): #문자열화 함수. 나중에 a=FormattedTime() 으로 객체화 했을때 print(a)시 return문 반환
         return "{0:02d}:{1:02d}:{2:02d}".format(self.minutes, self.seconds,
-                                                self.centiseconds)
+                                                self.centiseconds)  #02d 는 0을 포함해서 2자씩 int형으로 반환한단소리
 
-    def __len__(self):
+    def __len__(self):   #객체의 길이를 반환.
         return len(self.__str__())
 
 
@@ -114,6 +114,7 @@ class MainWindow(QMainWindow):
         self.lcd.setSegmentStyle(QLCDNumber.Flat)
         self.lcd.setDigitCount(len(str(self.formatted_time)))
         self.lcd.display(str(self.formatted_time))
+
 
         # ---
 
